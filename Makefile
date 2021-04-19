@@ -47,8 +47,8 @@ check-version:
 	make --version
 	@which php
 	php --version
-	@which composer
-	composer --version
+	# @which composer
+	# composer --version
 	$(PHPLOC) --version
 	$(PHPCS) --version
 	$(PHPCBF) --version

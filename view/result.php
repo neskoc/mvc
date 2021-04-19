@@ -10,7 +10,6 @@ namespace neskoc\Dice;
 
 $header = $header ?? null;
 $message = $message ?? null;
-$computerRolls = $computerRolls ?? ["" => "Empty"];
 
 ?>
 
@@ -26,23 +25,30 @@ Current Balance <br>
 You: &#8383;<?= $humanBalance ?> | Computer: &#8383;<?= $computerBalance ?><br><br>
 
 Your score:  <?= $humanScore ?><br>
-Your last hand: <?= $humanLastHand ?>
+Your last hand:
 <div class="dice-utf8">
 <?php
 foreach ($graphicalHand as $value) {
-    echo('<div class="dice-' . $value . '"></div>');
+    echo($value);
 }
 ?>
 </div>
 <p class="big_message"><?= $result ?></p>
 
 Computer score:  <?= $computerScore ?> <br>
-Computer hands: | 
+Computer hands: 
+<div class="dice-utf8">
 <?php
-foreach ($computerRolls as $roll) {
-    echo(' ' . $roll . " | ");
+if ($computerRolls) {
+    foreach ($computerRolls as $roll) {
+        foreach ($roll as $dice) {
+            echo($dice);
+        }
+        echo(" ");
+    }
 }
-?> 
+?>
+</div>
 <br><br>
 
 Status rounds (wins):<br>

@@ -51,7 +51,7 @@ class DiceHand
     {
         $res = [];
         for ($i = 0; $i < $this->nrOfDices; $i += 1) {
-            $res[$i] = $this->dices[$i]->getLastRoll();
+            $res[$i] = $this->dices[$i]->graphic();
         }
         return $res;
     }

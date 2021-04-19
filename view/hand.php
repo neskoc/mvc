@@ -25,11 +25,11 @@ Number of dices: <?= $nrOfDices ?><br><br>
 Your bet: &#8383;<?= $bet ?><br><br>
 
 Your score:  <?= $humanScore ?> <br>
-Your last hand: <?= $humanLastHand ?> 
+Your last hand: 
 <div class="dice-utf8">
 <?php
 foreach ($graphicalHand as $value) {
-    echo('<div class="dice-' . $value . '"></div>');
+    echo($value);
 }
 ?>
 </div>

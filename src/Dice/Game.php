@@ -140,7 +140,7 @@ class Game
         $rolls = [];
         do {
             $res = $this->computerPlayer->playHand();
-            $rolls[] = $this->computerPlayer->getLastHand();
+            $rolls[] = $this->computerPlayer->getLastGraphicalHand();
         } while ($res < 21 && $res < $this->humanPlayer->getRoundScore());
 
         return $rolls;
