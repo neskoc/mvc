@@ -1,0 +1,43 @@
+Pseudocode som visar hur resultatet skall sparas i tabellen
+
+Givet:
+    aktuell spelare: class Spelare
+    tärningar: int[5]
+    turer: int[6] (utökat antal: 14)
+        turer 1 - 6 måste spara minst en tärning av samma ordning
+            set värde =  ordning * count(tärningar av aktuell ordning)
+        turen 7 kan spara minst 2 av samma
+            set värde = 2 * max(ordning av ett par tärningar)
+        turen 8 kan spara minst 2 gånger 2 av samma
+            set värde = 2 * (ordning1 + ordnin2)
+        turen 9 kan spara minst 3 av samma
+            set värde = 3 * ordning
+        turen 10 kan spara minst 4 av samma
+            set värde = 4 * ordning
+        turen 11 kan spara minst 3 + 2 av samma eller olika
+            set värde = 3 * (ordning för triss + ordning för par)
+        turen 12 kan spara enbart 1,2,3,4,5 (liten stege)
+            set värde = 15
+        turen 13 kan spara enbart 2,3,4,5,6 (stor stege)
+            set värde = 20
+        turen 14 kan spara godtycklig kombination
+            set värde = summa(samtliga)
+    lediga turer: int[max 14]
+
+if (det finns lämpliga lediga turer i tabellen)
+    visa visuellt hela tabellen samt lediga turer (med hjälp av radio buttons)
+        där spelaren får spara sin tur
+    spelare får klicak på en "radio button", ingen förvald
+    när spelar klickar på spara-knappen
+        spara värdet i tabellen
+            set turer[radio button value] = tärningar
+        markera turen som upptagen
+            set occupied = true
+        if (alla tärningar har samma värde)
+            if (not yatzyOccupied)
+                set yatzy = 50
+                set yatzyOccupied = true
+else (visa samtliga turer som inte är strukna med radio buttons)
+    spelare får klicak på en "radio button", ingen förvald
+    när spelar klickar på spara-knappen, markera som struken
+        set turer[radio button value] = 0
