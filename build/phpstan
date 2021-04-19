@@ -1,8 +1,15 @@
- ------ -------------------------------------- 
-  Line   src/Dice/Game.php                     
- ------ -------------------------------------- 
-  91     Variable $lost might not be defined.  
- ------ -------------------------------------- 
+ ------ ---------------------------------------- 
+  Line   config/router.php                       
+ ------ ---------------------------------------- 
+  15     Variable $router might not be defined.  
+  20     Variable $router might not be defined.  
+  21     Variable $router might not be defined.  
+  23     Variable $router might not be defined.  
+  28     Variable $router might not be defined.  
+  32     Variable $router might not be defined.  
+  37     Variable $router might not be defined.  
+  51     Variable $router might not be defined.  
+ ------ ---------------------------------------- 
 
- [ERROR] Found 1 error                                                                                                  
+ [ERROR] Found 8 errors                                                         
 

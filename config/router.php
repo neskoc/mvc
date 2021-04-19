@@ -8,11 +8,9 @@
 
 declare(strict_types=1);
 
-namespace neskoc\Router;
+namespace neskoc\Config;
 
 use FastRoute\RouteCollector;
-
-$router = $router ?? null;
 
 $router->addRoute("GET", "/test", function () {
     // A quick and dirty way to test the router or the request.
@@ -21,7 +19,6 @@ $router->addRoute("GET", "/test", function () {
 
 $router->addRoute("GET", "/", "\Mos\Controller\Index");
 $router->addRoute("GET", "/debug", "\Mos\Controller\Debug");
-$router->addRoute("GET", "/twig", "\Mos\Controller\TwigView");
 
 $router->addGroup("/session", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\Mos\Controller\Session", "index"]);

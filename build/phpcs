@@ -1,5 +1,5 @@
 
-FILE: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php
+FILE: /Users/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php
 -----------------------------------------------------------------------------------------------------------------------------
 FOUND 118 ERRORS AFFECTING 43 LINES
 -----------------------------------------------------------------------------------------------------------------------------
@@ -125,5 +125,5 @@ FOUND 118 ERRORS AFFECTING 43 LINES
 PHPCBF CAN FIX THE 111 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -----------------------------------------------------------------------------------------------------------------------------
 
-Time: 451ms; Memory: 16MB
+Time: 688ms; Memory: 16MB
 

@@ -8,15 +8,6 @@ use neskoc\Dice\Game;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Psr\Http\Message\ResponseInterface;
 
-use function Mos\Functions\{
-    destroySession,
-    redirectTo,
-    renderView,
-    renderTwigView,
-    sendResponse,
-    url
-};
-
 /**
  * Controller for a Game21 route an controller class.
  */

@@ -10,6 +10,7 @@ namespace neskoc\Dice;
 
 class Player
 {
+
     protected float $bitcoinBalance;
     protected DiceHand $diceHand;
     protected int $roundScore;

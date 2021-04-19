@@ -4,12 +4,7 @@ declare(strict_types=1);
 
 namespace neskoc\Dice;
 
-use function Mos\Functions\{
-    redirectTo,
-    renderView,
-    sendResponse,
-    url
-};
+use function Mos\Functions\renderView;
 
 /**
  * Game class.
@@ -70,6 +65,8 @@ class Game
 
     public function roll(): string
     {
+        $lost = false;
+
         if (isset($_POST['roll']) || isset($_POST['playHand'])) {
             $lost = $this->playHumanHand();
             if ($this->humanPlayer->getRoundScore() === 21) {
@@ -83,10 +80,10 @@ class Game
         if ($playComputerHand) {
             $computerRolls = $this->playComputerHand();
 
+            $lost = false;
+
             if ($this->computerPlayer->getRoundScore() >= $this->humanPlayer->getRoundScore() && $this->computerPlayer->getRoundScore() <= 21) {
                 $lost = true;
-            } else {
-                $lost = false;
             }
         }
 
