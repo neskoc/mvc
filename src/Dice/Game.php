@@ -28,7 +28,7 @@ class Game
         $this->computerPlayer = new ComputerPlayer();
     }
 
-    public function newGame(): void
+    public function newGame(): string
     {
         $data = [
             "header" => "Game 21 (new game)",
@@ -38,10 +38,11 @@ class Game
         ];
 
         $body = renderView("layout/game21.php", $data);
-        sendResponse($body);
+
+        return $body;
     }
 
-    public function playGame(): void
+    public function playGame(): string
     {
         $data = [
             "header" => "Game 21 (play)",
@@ -51,10 +52,11 @@ class Game
         ];
 
         $body = renderView("layout/play.php", $data);
-        sendResponse($body);
+
+        return $body;
     }
 
-    public function playRound(): void
+    public function playRound(): string
     {
         $_SESSION['nrOfDices'] = (int) $_POST['nrOfDices'];
         $this->bet = (int) $_POST['bet'];
@@ -63,10 +65,10 @@ class Game
         $this->humanPlayer->startRound($_SESSION['nrOfDices']);
         $this->computerPlayer->startRound($_SESSION['nrOfDices']);
 
-        $this->roll();
+        return $this->roll();
     }
 
-    public function roll(): void
+    public function roll(): string
     {
         if (isset($_POST['roll']) || isset($_POST['playHand'])) {
             $lost = $this->playHumanHand();
@@ -121,7 +123,8 @@ class Game
             $data["result"] = $lost ? "You lost this round" : "You won this round";
             $body = renderView("layout/result.php", $data);
         }
-        sendResponse($body);
+
+        return $body;
     }
 
     public function playHumanHand(): bool

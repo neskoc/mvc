@@ -8,6 +8,8 @@
 
 declare(strict_types=1);
 
+namespace neskoc\Router;
+
 use FastRoute\RouteCollector;
 
 $router = $router ?? null;
@@ -36,11 +38,20 @@ $router->addGroup("/form", function (RouteCollector $router) {
 });
 
 $router->addGroup("/game21", function (RouteCollector $router) {
-    $router->addRoute("GET", "/view", ["\Mos\Controller\Form", "view"]);
-    $router->addRoute("POST", "/process", ["\Mos\Controller\Form", "process"]);
+    // $router->addRoute("GET", "", "\\neskoc\Controller\Game21");
+    $router->addRoute("GET", "", ["\\neskoc\Controller\Game21", "start"]);
+    if (isset($_POST['resetGame'])) {
+        $router->addRoute("POST", "", ["\\neskoc\Controller\Game21", "start"]);
+    } elseif (isset($_POST['playGame'])) {
+        $router->addRoute("POST", "", ["\\neskoc\Controller\Game21", "playGame"]);
+    } elseif (isset($_POST['playHand'])) {
+        $router->addRoute("POST", "", ["\\neskoc\Controller\Game21", "playRound"]);
+    } elseif (isset($_POST['roll']) || isset($_POST['stop'])) {
+        $router->addRoute("POST", "", ["\\neskoc\Controller\Game21", "roll"]);
+    }
 });
 
 $router->addGroup("/yatzy", function (RouteCollector $router) {
-    $router->addRoute("GET", "/view", ["\Mos\Controller\Form", "view"]);
-    $router->addRoute("POST", "/process", ["\Mos\Controller\Form", "process"]);
+    $router->addRoute("GET", "/view", ["\Mos\Controller\Yatzy", "view"]);
+    $router->addRoute("POST", "/process", ["\Mos\Controller\Yatzy", "process"]);
 });
