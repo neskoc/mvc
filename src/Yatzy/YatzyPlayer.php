@@ -12,12 +12,10 @@ use neskoc\Yatzy\YatzyTable;
 
 class YatzyPlayer
 {
-    public YatzyTable $yatzyTable;
     public int $playerNr;
 
     public function __construct(int $playerNr)
     {
         $this->playerNr = $playerNr;
-        $this->yatzyTable = new YatzyTable();
     }
 }

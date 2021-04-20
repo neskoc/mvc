@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace neskoc\Dice;
 
 /**
- * DiceInterface interface.
+ * DiceInterface.
  */
 
 interface DiceInterface

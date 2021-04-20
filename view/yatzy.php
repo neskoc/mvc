@@ -18,9 +18,13 @@ $message = $message ?? null;
 <p><?= $message ?></p>
 
 <form action="#" method="POST">
-    <label for="nrOfPlayers">Ange antal spelare</label>
-    <input class="shortInput" type="number" step="1" value='1' 
-        placeholder='1' min='1' id="nrOfPlayers" name="nrOfPlayers">
+    <label for="nrOfPlayers">Välj antal spelare</label>
+    <select name="nrOfPlayers" id="nrOfPlayers">
+        <option value="1">1 spelare</option>
+        <option value="2" selected>2 spelare</option>
+        <option value="3">3 spelare</option>
+        <option value="4">4 spelare</option>
+    </select><br>
     <input name="playGame" type="submit" value="Play">
 </form>
 <br>
