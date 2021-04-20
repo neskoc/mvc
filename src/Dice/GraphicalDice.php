@@ -8,12 +8,11 @@ namespace neskoc\Dice;
  * Dice class.
  */
 
-class GraphicalDice extends Dice
+class GraphicalDice extends Dice implements DiceInterface
 {
     /**
      * @const int SIDES Number of dice sides
      */
-    private const SIDES = 6;
     private array $graphic = [
         1 => "⚀",
         2 => "⚁",

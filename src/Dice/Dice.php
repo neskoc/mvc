@@ -8,7 +8,7 @@ namespace neskoc\Dice;
  * Dice class.
  */
 
-class Dice
+class Dice implements DiceInterface
 {
     private int $faces;
 
