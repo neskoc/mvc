@@ -6,7 +6,7 @@
 
 declare(strict_types=1);
 
-namespace neskoc\Dice;
+namespace neskoc\Yatzy;
 
 $header = $header ?? null;
 $message = $message ?? null;
@@ -15,11 +15,9 @@ $message = $message ?? null;
 
 <h1><?= $header ?></h1>
 
-<p><?= $message ?></p>
+<h2><?= $message ?></h2>
 
-Current Balance <br>
-You: &#8383;<?= $humanBalance ?> | Computer: &#8383;<?= $computerBalance ?><br><br>
-<form action="game21" method="POST">
+<form action="#" method="POST">
     <input name="playGame" type="submit" value="Play">
 </form>
 <br>
