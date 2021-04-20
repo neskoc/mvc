@@ -5,21 +5,26 @@ declare(strict_types=1);
 namespace neskoc\Dice;
 
 /**
- * Dice class.
+ * NewDiceHand class.
  */
 
-class DiceHand
+class NewDiceHand
 {
     private array $dices;
     private int $sum;
-    private int $nrOfDices;
+    private int $nrOfDices = 0;
 
     public function __construct($nrOfDices = 2)
     {
-        $this->nrOfDices = $nrOfDices;
         for ($i = 0; $i < $nrOfDices; $i += 1) {
-            $this->dices[$i] = new GraphicalDice();
+            $this->addDice(new GraphicalDice());
         }
+    }
+
+    public function addDice(DiceInterface $dice)
+    {
+        $this->nrOfDices += 1;
+        $this->dices[] = $dice;
     }
 
     public function roll(): int

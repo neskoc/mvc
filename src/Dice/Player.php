@@ -12,7 +12,7 @@ class Player
 {
 
     protected float $bitcoinBalance;
-    protected DiceHand $diceHand;
+    protected NewDiceHand $diceHand;
     protected int $roundScore;
     protected int $wins = 0;
 
@@ -40,7 +40,7 @@ class Player
     public function startRound($nrOfDices): void
     {
         $this->roundScore = 0;
-        $this->diceHand = new DiceHand($nrOfDices);
+        $this->diceHand = new NewDiceHand($nrOfDices);
     }
 
     public function playHand(): int

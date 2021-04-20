@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace neskoc\Yatzy;
 
-use neskoc\Dice\DiceHand;
+use neskoc\Dice\NewDiceHand;
 use function Mos\Functions\renderView;
 
 /**
@@ -18,13 +18,13 @@ class YatzyGame
 
     private array $yatzyPlayers;
     private int $nrOfPlayers;
-    private DiceHand $diceHand;
+    private NewDiceHand $diceHand;
 
     public YatzyPlayer $currentPlayer;
 
     public function __construct()
     {
-        $this->diceHand = new DiceHand(5);
+        $this->diceHand = new NewDiceHand(5);
     }
 
     public function initialize(): string
