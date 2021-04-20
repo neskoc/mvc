@@ -1,3 +1,4 @@
+
 Pseudocode som visar hur resultatet skall sparas i tabellen
 
 Givet:
@@ -6,15 +7,15 @@ Givet:
     turer: int[6] (utökat antal: 14)
         turer 1 - 6 måste spara minst en tärning av samma ordning
             set värde =  ordning * count(tärningar av aktuell ordning)
-        turen 7 kan spara minst 2 av samma
+        turen 7 kan spara enbart ett par
             set värde = 2 * max(ordning av ett par tärningar)
-        turen 8 kan spara minst 2 gånger 2 av samma
+        turen 8 kan spara enbart 2 gånger 2 av samma
             set värde = 2 * (ordning1 + ordnin2)
-        turen 9 kan spara minst 3 av samma
+        turen 9 kan spara enbart 3 av samma
             set värde = 3 * ordning
-        turen 10 kan spara minst 4 av samma
+        turen 10 kan spara enbart 4 av samma
             set värde = 4 * ordning
-        turen 11 kan spara minst 3 + 2 av samma eller olika
+        turen 11 kan spara kåk: en triss + ett par
             set värde = 3 * (ordning för triss + ordning för par)
         turen 12 kan spara enbart 1,2,3,4,5 (liten stege)
             set värde = 15
