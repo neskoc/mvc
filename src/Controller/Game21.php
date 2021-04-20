@@ -21,6 +21,16 @@ class Game21
             ->withBody($psr17Factory->createStream($body));
     }
 
+    public function __invoke(): ResponseInterface
+    {
+        $callable = new Game();
+        $_SESSION['game'] = serialize($callable);
+
+        $body = $callable->newGame();
+
+        return $this->gamePsr17Factory($body);
+    }
+
     public function start(): ResponseInterface
     {
         $callable = new Game();

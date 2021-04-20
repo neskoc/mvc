@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter as Emitter;
 use Mos\Controller\Error;
-// use Psr\Http\Message\ResponseInterface;
 
 use function Mos\Functions\getRoutePath;
 
@@ -46,6 +45,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $rout
 // the response.
 $response = null;
 $routeInfo = $dispatcher->dispatch($method, $path);
+
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
         $response = (new Error())->do404();
@@ -81,7 +81,7 @@ switch ($routeInfo[0]) {
         break;
 }
 
-// Send the reponse
+// Send the response
 if (is_null($response)) {
     echo "The response object is null.";
 } else if (is_string($response)) {

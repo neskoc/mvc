@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace neskoc\Config;
+namespace neskoc\Router;
 
 use FastRoute\RouteCollector;
 
@@ -19,6 +19,7 @@ $router->addRoute("GET", "/test", function () {
 
 $router->addRoute("GET", "/", "\Mos\Controller\Index");
 $router->addRoute("GET", "/debug", "\Mos\Controller\Debug");
+// $router->addRoute("GET", "/game21", ["\\neskoc\Controller\Game21", "start"]);
 
 $router->addGroup("/session", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\Mos\Controller\Session", "index"]);
@@ -49,6 +50,6 @@ $router->addGroup("/game21", function (RouteCollector $router) {
 });
 
 $router->addGroup("/yatzy", function (RouteCollector $router) {
-    $router->addRoute("GET", "/view", ["\Mos\Controller\Yatzy", "view"]);
-    $router->addRoute("POST", "/process", ["\Mos\Controller\Yatzy", "process"]);
+    $router->addRoute("GET", "", ["\\neskoc\Controller\Yatzy", "initialize"]);
+    $router->addRoute("POST", "", ["\\neskoc\Controller\Yatzy", "start"]);
 });
