@@ -209,3 +209,11 @@ function destroySession(): void
 
     session_destroy();
 }
+
+function askForPostAndGetParams()
+{
+    return array_merge(
+        filter_input_array(INPUT_POST) ?? [],
+        filter_input_array(INPUT_GET) ?? []
+    );
+}

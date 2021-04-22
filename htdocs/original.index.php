@@ -50,25 +50,33 @@ switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
         $response = (new Error())->do404();
         break;
-    //     echo("handler:");
-    //     var_dump($handler);
-    //     echo("vars:");
-    //     var_dump($vars);
-    //     echo '<pre>' . var_export($routeInfo) . '</pre>';
-    //     exit();
 
-    //     https://github.com/elkarte/Elkarte/issues/3419
+    case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+        $allowedMethods = $routeInfo[1];
+        $response = (new Error())->do405($allowedMethods);
+        break;
 
     case FastRoute\Dispatcher::FOUND:
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
-        if (is_array($handler)) {
-            if (class_exists($handler[0]) && in_array($handler[1], get_class_methods($handler[0]))) {
+        echo("handler:");
+        var_dump($handler);
+        echo("vars:");
+        var_dump($vars);
+        echo '<pre>' . var_export($routeInfo) . '</pre>';
+        exit();
+        if (is_callable($handler)) {
+            if (is_array($handler)
+                && is_string($handler[0])
+                && class_exists($handler[0])
+            ) {
                 $obj = new $handler[0]();
                 $action = $handler[1];
                 $response = $obj->$action();
+            } else {
+                $response = call_user_func_array($handler, $vars);
             }
-        } elseif (is_string($handler) && class_exists($handler)) {
+        } else if (is_string($handler) && class_exists($handler)) {
             $rc = new \ReflectionClass($handler);
             if ($rc->hasMethod("__invoke")) {
                 $obj = new $handler;

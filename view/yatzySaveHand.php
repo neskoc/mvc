@@ -7,9 +7,8 @@
 declare(strict_types=1);
 
 namespace neskoc\Yatzy;
+use function Mos\Functions\url;
 
-$playerNr = $playerNr ?? 1;
-$round = $round ?? 1;
 $rollNr = $rollNr ?? 1;
 $header = $header ?? null;
 $message = $message ?? null;
@@ -27,13 +26,12 @@ if ($debug != null) {
 }
 ?>
 
+<p>
+    Välj rad du vill spara i. Om du väljer redan spelat slag stryks det.
+</p>
+
 <form action="" method="POST">
-    <?php
-    if ($rollNr < 3) {
-        echo('<input name="playGame" type="submit" value="Slå tärningar">');
-    }
-    ?>
-    <button type="submit" formaction="yatzy/save">Spara värdet</button>
+    <input name="keep" type="submit" value="Spara värdet">
     <?= $hand ?>
 
     <div>

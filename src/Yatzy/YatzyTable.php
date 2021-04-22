@@ -8,8 +8,10 @@ namespace neskoc\Yatzy;
  * YatzyTable class.
  */
 
-class YatzyTable
+class YatzyTable implements ShowYatzyTableInterface
 {
+    use ShowYatzyTable;
+
     public const ROWS = 14; // extended yatzy
     public const ROW_NAMES = [
         "Ettor",
@@ -46,9 +48,6 @@ class YatzyTable
 
     public function getAvailableSlots(array $hand): array
     {
-        if ($this->currentColumn->yatzy !== 0 && count(array_unique($hand)) === 5) {
-            $this->currentColumn->yatzy = 50;
-        };
         return $this->currentColumn->getAvailableSlots($hand);
     }
 
@@ -57,12 +56,17 @@ class YatzyTable
         $this->currentColumn->disableSlot($rowNr);
     }
 
-    private function checkIfSlotAllowed(int $value, array $hand): bool
+    public function checkIfSlotdisabled(int $rowNr): bool
+    {
+        return $this->currentColumn->disabledSlots[$rowNr];
+    }
+
+    public function checkIfSlotAllowed(int $value, array $hand): bool
     {
         return $this->currentColumn->checkIfSlotAllowed($value, $hand);
     }
 
-    private function saveValue(int $value, array $hand)
+    public function saveValue(int $value, array $hand)
     {
         $this->currentColumn->saveValue($value, $hand);
     }

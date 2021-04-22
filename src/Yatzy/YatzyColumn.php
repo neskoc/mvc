@@ -10,9 +10,12 @@ namespace neskoc\Yatzy;
 
 class YatzyColumn implements YatzyColumnInterface
 {
-    public array $yatzyColumn; // objects
+    public array $yatzyColumn = []; // objects
     public array $occupiedSlots; // booleans
     public array $disabledSlots; // booleans
+    public int $summa = 0;
+    public int $total = 0;
+    public int $bonus = 0;
     public int $yatzy = 0;
 
     public function __construct()
@@ -39,8 +42,8 @@ class YatzyColumn implements YatzyColumnInterface
 
     public function disableSlot(int $rowNr): void
     {
-        $this->disabledSlots[$rowNr - 1] = true;
-        $this->yatzyColumn[$rowNr - 1] = 0;
+        $this->disabledSlots[$rowNr] = true;
+        $this->yatzyColumn[$rowNr] = 0;
     }
 
     public function checkIfSlotAllowed(int $value, array $hand): bool
@@ -96,17 +99,18 @@ class YatzyColumn implements YatzyColumnInterface
         return $available;
     }
 
-    public function saveValue(int $value, array $hand)
+    public function saveValue(int $index, array $hand)
     {
         $score = 0;
         sort($hand);
+        $value = $index + 1;
         $arrayCountValues = array_count_values($hand);
-        if ($value > 0 && $$value < 7) {
+        if ($value < 7) {
             $score = $value * $this->nrOfAKind($arrayCountValues, $value);
         } else {
             switch ($value) {
                 case 7:
-                    $score = $this->getAllPairValues($arrayCountValues)[0];
+                    $score = 2 * $this->getAllPairValues($arrayCountValues)[0];
                     break;
                 case 8:
                     $pairValues = $this->getAllPairValues($arrayCountValues);
@@ -119,8 +123,7 @@ class YatzyColumn implements YatzyColumnInterface
                     $score = 4 * $this->valueOfXOfAKind($arrayCountValues, 4);
                     break;
                 case 11:
-                    $score = $this->valueOfXOfAKind($arrayCountValues, 2) +
-                        $this->valueOfXOfAKind($arrayCountValues, 3);
+                    $score = array_sum($hand);
                     break;
                 case 12:
                     $score = 15;
@@ -133,7 +136,7 @@ class YatzyColumn implements YatzyColumnInterface
                     break;
             }
         }
-        $this->yatzyColumn[$value] = $score;
+        $this->yatzyColumn[$index] = $score;
     }
 
     private function checkFirst6(int $value, array $hand): bool

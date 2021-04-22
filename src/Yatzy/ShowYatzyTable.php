@@ -12,63 +12,70 @@ use neskoc\Yatzy\ShowYatzyTableInterface;
 
 trait ShowYatzyTable
 {
-    public YatzyTable $yatzyTable;
+    private YatzyTable $yatzyTable;
 
-    public function showYatzyTable(YatzyTable $yatzyTable): string
+    public function showYatzyTable(YatzyTable $yatzyTable, bool $addRadioButtons = false): string
     {
-        /*
-        <tr>
-            <th>Spelare:</th>
-            <th>1</th>
-            <th>2</th>
-        </tr>
-        <tr>
-            <td class="left">Ettor</td>
-            <td class="right">2</td>
-            <td class="right">4</td>
-        </tr>
-        <tr>
-            <td class="left">Ettor</td>
-            <td class="right">2</td>
-            <td class="right">4</td>
-        </tr>
-        */
+        $this->yatzyTable = $yatzyTable;
+
         $htmlTableBlock = "";
-        $htmlTableBlock .= '<table class="yatzy-table"';
-        $tableHeader = '<tr class="yatzy-header">';
-        $tableHeader .= "<th>SPELARE:</th>";
-        for ($i = 0; $i < $yatzyTable->yatzyColumns; $i += 1) {
-            $tableHeader .= '<th class="center">Player ' . "{$i}</th>";
+        $htmlTableBlock .= '<table class="table table-bordered">';
+        $tableHeader = '<thead>';
+        $tableHeader .= "<tr>";
+        $tableHeader .= '<th class="right">SPELARE </th>';
+        for ($i = 1; $i <= $yatzyTable->nrYazyColumns; $i += 1) {
+            $tableHeader .= '<th class="center">Spelare ' . "{$i}</th>";
+        }
+        if ($addRadioButtons) {
+            $tableHeader .= '<th class="center">Val</th>';
         }
         $tableHeader .= "</tr>";
-        $tableRows = "";
+        $tableHeader .= '</thead>';
+        $tableBody = "<tbody>";
         for ($i = 0; $i < 6; $i += 1) {
-            $tableRows .= $this->addTableRow($i);
+            $tableBody .= $this->addTableRow($i, $addRadioButtons);
         }
+        $tableBody .= $this->addRow("SUMMA:", $this->yatzyTable->yatzyColumns, "summa");
+        $tableBody .= $this->addRow("BONUS(50)", $this->yatzyTable->yatzyColumns, "bonus");
         for ($i = 6; $i < $yatzyTable::ROWS; $i += 1) {
-            $tableRows .= $this->addTableRow($i);
+            $tableBody .= $this->addTableRow($i, $addRadioButtons);
         }
+        $tableBody .= $this->addRow("Yatzy(50)", $this->yatzyTable->yatzyColumns, "yatzy");
+        $tableBody .= $this->addRow("TOTAL:", $this->yatzyTable->yatzyColumns, "total");
+        $tableBody .= "</tbody>";
         $htmlTableBlock .= $tableHeader;
-        $htmlTableBlock .= $tableRows;
+        $htmlTableBlock .= $tableBody;
         $htmlTableBlock .= '</table>';
         return $htmlTableBlock;
+    }
+
+    private function addRow(string $rowName, array $handlers, string $value): string
+    {
+        $tableRow = "<tr>";
+        $tableRow .= '<td class="left">' . $rowName . '</td>';
+        for ($i = 0; $i < $this->yatzyTable->nrYazyColumns; $i += 1) {
+            $tableRow .= '<td class="right">' . $handlers[$i]->$value . '</td>';
+        }
+        $tableRow .= "</tr>";
+
+        return $tableRow;
     }
 
     private function addTableRow(int $rowNr, bool $addRadioButtons = false): string
     {
         $tableRow = '<tr class="yatzy-row">';
-        $tableRow .= '<td class="left">"' . "{$this->yatzyTable::ROW_NAMES[$rowNr]}</td>";
-        for ($j = 0; $j < $this->yatzyTable->yatzyColumns; $j += 1) {
-            $tableRow .= '<td class="right">' . "{$this->yatzyTable->yatzyColumns[$j]->yatzyColumn[$rowNr]}</td>";
+        $tableRow .= '<td class="left">' . "{$this->yatzyTable::ROW_NAMES[$rowNr]}";
+        for ($j = 0; $j < $this->yatzyTable->nrYazyColumns; $j += 1) {
+            $rowValue = $this->yatzyTable->yatzyColumns[$j]->yatzyColumn[$rowNr] ?? "";
+            $tableRow .= '<td class="right">' . "{$rowValue}</td>";
         }
         if ($addRadioButtons) {
-            // <input type="radio" id="male" name="gender" value="male">
-            // <label for="male">Male</label><br>
-            // <input type="radio" id="female" name="gender" value="female">
-            $radioButton = '<input class="select" type="radio" id="' . $rowNr . '" name="choice" value="' . $rowNr . '">';
+            $radioButton = '<input class="select input" type="radio" id="' . $rowNr .
+                '" name="choice" value="' . $rowNr . '" required>';
             $tableRow .= '<td class="center">' . "{$radioButton}</td>";
         }
         $tableRow .= '</tr>';
+
         return $tableRow;
     }
 }

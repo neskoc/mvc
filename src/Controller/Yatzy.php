@@ -39,8 +39,8 @@ class Yatzy
     public function start(): ResponseInterface
     {
         $callable = unserialize($_SESSION['yatzy-game']);
-
         $body = $callable->newGame();
+        $_SESSION['yatzy-game'] = serialize($callable);
 
         return $this->gamePsr17Factory($body);
     }
@@ -49,14 +49,15 @@ class Yatzy
     {
         $callable = unserialize($_SESSION['yatzy-game']);
         $body = $callable->playGame();
+        $_SESSION['yatzy-game'] = serialize($callable);
 
         return $this->gamePsr17Factory($body);
     }
 
-    public function playRound(): ResponseInterface
+    public function save(): ResponseInterface
     {
         $callable = unserialize($_SESSION['yatzy-game']);
-        $body = $callable->playRound();
+        $body = $callable->saveHand();
 
         return $this->gamePsr17Factory($body);
     }

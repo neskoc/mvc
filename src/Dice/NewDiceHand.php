@@ -27,6 +27,19 @@ class NewDiceHand
         $this->dices[] = $dice;
     }
 
+    public function rollSelectively(array $keep = []): array
+    {
+        // $len = count($this->dices);
+        $rolled = [];
+        for ($i = 0; $i < $this->nrOfDices; $i += 1) {
+            if (!in_array($i, $keep)) {
+                $this->dices[$i]->roll();
+                $rolled[] = $i;
+            }
+        }
+        return $rolled;
+    }
+
     public function roll(): int
     {
 
@@ -38,18 +51,14 @@ class NewDiceHand
         return $this->sum;
     }
 
-    public function getLastHand(): string
+    public function getLastHand(): array
     {
-        $res = "";
+        $dicesAsArray = [];
         // $len = count($this->dices);
-        for ($i = 0; $i < $this->nrOfDices; $i += 1) {
-            $separator = ", ";
-            if ($i === $this->nrOfDices - 1) {
-                $separator = "";
-            }
-            $res .= $this->dices[$i]->getLastRoll() . $separator;
+        foreach ($this->dices as $dice) {
+            $dicesAsArray[] = $dice->getLastRoll();
         }
-        return $res;
+        return $dicesAsArray;
     }
 
     public function getLastGraphicalHand(): array
