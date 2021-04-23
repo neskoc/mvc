@@ -1,16 +1,19 @@
 <?php
 
+/**
+ * YatzyGame class.
+ */
+
 declare(strict_types=1);
 
 namespace neskoc\Yatzy;
 
 use neskoc\Dice\NewDiceHand;
-use function Mos\Functions\renderView;
-use function Mos\Functions\askForPostAndGetParams as askForPostAndGetParams;
 
-/**
- * YatzyGame class.
- */
+use function Mos\Functions\renderView;
+use function Mos\Functions\url;
+use function Mos\Functions\redirectTo;
+use function Mos\Functions\askForPostAndGetParams as askForPostAndGetParams;
 
 class YatzyGame
 {
@@ -45,8 +48,12 @@ class YatzyGame
         return $body;
     }
 
-    public function newGame(): string
+    public function playHand(): string
     {
+        $params = askForPostAndGetParams();
+        $this->savedDices = $params['dice'] ?? [];
+        $this->diceHand->rollSelectively($this->savedDices);
+
         if (isset($_POST['nrOfPlayers'])) {
             $this->nrOfPlayers = (int) $_POST['nrOfPlayers'];
 
@@ -56,19 +63,24 @@ class YatzyGame
             $this->currentPlayer = $this->yatzyPlayers[$this->playerNr];
             $this->yatzyTable = new YatzyTable($this->nrOfPlayers);
             $this->round = 1;
+        } else {
+            $yatzyTable = $this->yatzyTable->showYatzyTable($this->yatzyTable);
         }
+        $yatzyTable = $yatzyTable ?? '';
 
-        $params = askForPostAndGetParams();
-        $this->savedDices = $params['dice'] ?? [];
-
-        $res = $this->diceHand->rollSelectively($this->savedDices);
+        $this->yatzyTable->setLastHand($this->diceHand->getLastHand());
         $this->rollNr += 1;
+        if ($this->rollNr === 3) {
+            $_SESSION['yatzy-game'] = serialize($this);
+            redirectTo('save');
+            exit();
+        }
 
         // $debug = json_encode($this->savedDices) . json_encode($res);
         $data = [
             "header" => "Yatzy (omgångar)",
             "message" => '',
-            "table" => $this->yatzyTable->showYatzyTable($this->yatzyTable),
+            "table" => $yatzyTable,
             "round" => $this->round,
             "playerNr" => $this->playerNr,
             "rollNr" => $this->rollNr,
@@ -76,7 +88,7 @@ class YatzyGame
             "debug" => ''
         ];
 
-        $body = renderView("layout/yatzyNewGame.php", $data);
+        $body = renderView("layout/yatzyPlayHand.php", $data);
 
         return $body;
     }
@@ -84,13 +96,59 @@ class YatzyGame
     public function saveHand(): string
     {
         $params = askForPostAndGetParams();
-        $this->savedDices = $params['dice'] ?? [];
+        // $this->savedDices = $params['dice'] ?? [];
         if (isset($params['keep'])) {
             // $debug = json_encode($params);
-            $diceHand = $this->diceHand->getLastHand();
+            $diceHandArray = $this->diceHand->getLastHand();
             $choice = (int) $params["choice"];
-            $this->yatzyTable->currentColumn->saveValue($choice, $diceHand);
+            $this->yatzyTable->currentColumn->saveValue($choice, $diceHandArray);
+            $debug = json_encode($params) . json_encode($choice) . json_encode($diceHandArray);
+            $this->diceHand->rollSelectively([]);
+            $this->savedDices = [];
+
+            $finished = false;
+            $finishedCounter = $this->nrOfPlayers + 2;
+            do {
+                $finishedCounter -= 1;
+                $this->playerNr += 1;
+                if ($this->playerNr > $this->nrOfPlayers) {
+                    $this->playerNr = 1;
+                }
+                if ($this->yatzyTable->yatzyColumns[$this->nrOfPlayers - 1]->active === true) {
+                    $finished = true;
+                }
+                // var_dump($this->playerNr);
+                // var_dump($finished);
+                // var_dump($this->yatzyTable->yatzyColumns[$this->nrOfPlayers - 1]->active);
+            } while (!$finished && $finishedCounter > 0);
+            // echo('nrOfPlayers');
+            // var_dump($this->nrOfPlayers);
+            // exit();
+
+            $this->currentPlayer = $this->yatzyPlayers[$this->playerNr];
+            $this->yatzyTable->currentColumn = $this->yatzyTable->yatzyColumns[$this->playerNr - 1];
+            $this->rollNr = 0;
+            if ($this->playerNr == 1) {
+                $this->round += 1;
+            }
+            if ($finishedCounter === 0) {
+                // var_dump($this->yatzyTable->yatzyColumns[0]->active);
+                // var_dump($this->yatzyTable->yatzyColumns[1]->active);
+                // var_dump($this->yatzyTable->yatzyColumns[0]->disabledSlots);
+                // var_dump($this->yatzyTable->yatzyColumns[1]->disabledSlots);
+                $_SESSION['yatzy-game'] = serialize($this);
+                redirectTo('game-over');
+                exit();
+            }
+            $_SESSION['yatzy-game'] = serialize($this);
+            redirectTo('play');
+            exit();
+        } else {
+            $debug = json_encode($params) . json_encode($this->diceHand->getLastHand());
         }
+
+        $debug = $debug ?? json_encode($params);
+
         $data = [
             "header" => "Yatzy (spara)",
             "message" => '',
@@ -98,8 +156,8 @@ class YatzyGame
             "round" => $this->round,
             "playerNr" => $this->playerNr,
             "rollNr" => $this->rollNr,
-            "hand" => $this->showHandChoices($this->diceHand->getLastGraphicalHand()),
-            "debug" => '' //$debug
+            "hand" => $this->showHandChoices($this->diceHand->getLastGraphicalHand(), false),
+            "debug" => '' // $debug
         ];
 
         $body = renderView("layout/yatzySaveHand.php", $data);
@@ -107,17 +165,20 @@ class YatzyGame
         return $body;
     }
 
-    public function playGame(): string
+    public function gameOver(): string
     {
-        $this->currentPlayer = $this->yatzyPlayers[1];
-        $this->yatzyTable = new YatzyTable($this->nrOfPlayers);
+        $yatzyTable = $this->yatzyTable->showYatzyTable($this->yatzyTable);
 
+        // $debug = json_encode($this->savedDices) . json_encode($res);
         $data = [
-            "header" => "Yatzy (new game)",
-            "message" => "Spelare {$this->currentPlayer->playerNr}",
-            "table" => $this->yatzyTable->showYatzyTable($this->yatzyTable)
+            "header" => "Yatzy (slut)",
+            "message" => 'Spelet är slut!',
+            "table" => $yatzyTable,
+            "round" => $this->round,
+            "debug" => ''
         ];
-        $body = renderView("layout/yatzyNewGame.php", $data);
+
+        $body = renderView("layout/yatzyGameOver.php", $data);
 
         return $body;
     }

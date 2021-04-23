@@ -15,6 +15,6 @@ interface YatzyColumnInterface
     public function __construct();
     public function getAvailableSlots(array $hand): array;
     public function disableSlot(int $rowNr): void;
-    public function checkIfSlotAllowed(int $value, array $hand): bool;
+    public function isSlotAllowed(int $value, array $hand): bool;
     public function saveValue(int $value, array $hand);
 }

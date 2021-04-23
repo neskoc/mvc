@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
-
-namespace neskoc\Yatzy;
-
-use neskoc\Yatzy\ShowYatzyTableInterface;
-
 /**
  * ShowYatzyTable trait.
  */
+
+declare(strict_types=1);
+
+namespace neskoc\Yatzy;
 
 trait ShowYatzyTable
 {
@@ -17,7 +15,7 @@ trait ShowYatzyTable
     public function showYatzyTable(YatzyTable $yatzyTable, bool $addRadioButtons = false): string
     {
         $this->yatzyTable = $yatzyTable;
-
+        $anySlotAAE = $yatzyTable->isAnySlotAvailableAllowedAndEnabled();
         $htmlTableBlock = "";
         $htmlTableBlock .= '<table class="table table-bordered">';
         $tableHeader = '<thead>';
@@ -33,12 +31,12 @@ trait ShowYatzyTable
         $tableHeader .= '</thead>';
         $tableBody = "<tbody>";
         for ($i = 0; $i < 6; $i += 1) {
-            $tableBody .= $this->addTableRow($i, $addRadioButtons);
+            $tableBody .= $this->addTableRow($i, $anySlotAAE, $addRadioButtons);
         }
-        $tableBody .= $this->addRow("SUMMA:", $this->yatzyTable->yatzyColumns, "summa");
+        $tableBody .= $this->addRow("SUMMA:", $this->yatzyTable->yatzyColumns, "sum");
         $tableBody .= $this->addRow("BONUS(50)", $this->yatzyTable->yatzyColumns, "bonus");
         for ($i = 6; $i < $yatzyTable::ROWS; $i += 1) {
-            $tableBody .= $this->addTableRow($i, $addRadioButtons);
+            $tableBody .= $this->addTableRow($i, $anySlotAAE, $addRadioButtons);
         }
         $tableBody .= $this->addRow("Yatzy(50)", $this->yatzyTable->yatzyColumns, "yatzy");
         $tableBody .= $this->addRow("TOTAL:", $this->yatzyTable->yatzyColumns, "total");
@@ -61,20 +59,46 @@ trait ShowYatzyTable
         return $tableRow;
     }
 
-    private function addTableRow(int $rowNr, bool $addRadioButtons = false): string
+    private function addTableRow(int $rowNr, bool $anySlotAAE, bool $addRadioButtons = false): string
     {
+        $showRadioButton = false;
         $tableRow = '<tr class="yatzy-row">';
         $tableRow .= '<td class="left">' . "{$this->yatzyTable::ROW_NAMES[$rowNr]}";
         for ($j = 0; $j < $this->yatzyTable->nrYazyColumns; $j += 1) {
             $rowValue = $this->yatzyTable->yatzyColumns[$j]->yatzyColumn[$rowNr] ?? "";
             $tableRow .= '<td class="right">' . "{$rowValue}</td>";
         }
+        $slotAAE = $this->yatzyTable->isSlotAvailableAllowedAndEnabled($rowNr);
+        $isChanceAavailable = $this->yatzyTable->isChanceAvailableAndEnabled();
+        $slotEnabled = $this->yatzyTable->isSlotEnabled($rowNr);
         if ($addRadioButtons) {
+            if ($anySlotAAE) { // anySlot excludes chance
+                if ($slotAAE && $rowNr != $this->yatzyTable::ROWS - 1) { // exclude chance
+                    $showRadioButton = true;
+                }
+            } elseif ($rowNr === $this->yatzyTable::ROWS - 1 && $isChanceAavailable) {
+                $showRadioButton = true;
+            } elseif ($slotEnabled && !$isChanceAavailable) {
+                $showRadioButton = true;
+                $this->yatzyTable->currentColumn->strike = true;
+            }
+        }
+        if ($showRadioButton) {
             $radioButton = '<input class="select input" type="radio" id="' . $rowNr .
-                '" name="choice" value="' . $rowNr . '" required>';
+            '" name="choice" value="' . $rowNr . '" required>';
             $tableRow .= '<td class="center">' . "{$radioButton}</td>";
         }
         $tableRow .= '</tr>';
+        // if ($rowNr === 13) {
+        //     var_dump($this->yatzyTable->getLastHand());
+        //     var_dump($anySlotAAE);
+        //     var_dump($slotAAE);
+        //     var_dump($isChanceAavailable);
+        //     var_dump($slotEnabled);
+        //     var_dump($rowNr === $this->yatzyTable::ROWS - 1 && $isChanceAavailable);
+        //     var_dump($rowNr);
+        //     exit();
+        // }
 
         return $tableRow;
     }

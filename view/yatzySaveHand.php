@@ -1,12 +1,13 @@
 <?php
 
 /**
- * View template for Dice Game.
- */
+ * View template for Yatzy: Save hand.
+*/
 
 declare(strict_types=1);
 
 namespace neskoc\Yatzy;
+
 use function Mos\Functions\url;
 
 $rollNr = $rollNr ?? 1;
@@ -31,7 +32,7 @@ if ($debug != null) {
 </p>
 
 <form action="" method="POST">
-    <input name="keep" type="submit" value="Spara värdet">
+    <input name="keep" type="submit" value="Spara handen">
     <?= $hand ?>
 
     <div>

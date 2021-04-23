@@ -17,7 +17,7 @@ $message = $message ?? null;
 
 <p><?= $message ?></p>
 
-<form action="#" method="POST">
+<form action="yatzy/play" method="POST">
     <label for="nrOfPlayers">Välj antal spelare</label>
     <select name="nrOfPlayers" id="nrOfPlayers">
         <option value="1">1 spelare</option>

@@ -51,6 +51,9 @@ $router->addGroup("/game21", function (RouteCollector $router) {
 
 $router->addGroup("/yatzy", function (RouteCollector $router) {
     $router->addRoute("GET", "", ["\\neskoc\Controller\Yatzy", "initialize"]);
-    $router->addRoute("POST", "", ["\\neskoc\Controller\Yatzy", "start"]);
-    $router->addRoute("POST", "/save", ["\\neskoc\Controller\Yatzy", "save"]);
+    $router->addRoute("GET", "/play", ["\\neskoc\Controller\Yatzy", "playHand"]);
+    $router->addRoute("POST", "/play", ["\\neskoc\Controller\Yatzy", "playHand"]);
+    $router->addRoute("GET", "/save", ["\\neskoc\Controller\Yatzy", "saveHand"]);
+    $router->addRoute("POST", "/save", ["\\neskoc\Controller\Yatzy", "saveHand"]);
+    $router->addRoute("GET", "/game-over", ["\\neskoc\Controller\Yatzy", "gameOver"]);
 });

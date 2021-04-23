@@ -1,14 +1,4 @@
 
-FILE: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyTable.php
-------------------------------------------------------------------------------------------
-FOUND 1 ERROR AFFECTING 1 LINE
-------------------------------------------------------------------------------------------
- 17 | ERROR | [x] The closing brace for the class must go on the next line after the body
-------------------------------------------------------------------------------------------
-PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
-------------------------------------------------------------------------------------------
-
-
 FILE: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php
 -----------------------------------------------------------------------------------------------------------------------------
 FOUND 118 ERRORS AFFECTING 43 LINES
@@ -135,5 +125,5 @@ FOUND 118 ERRORS AFFECTING 43 LINES
 PHPCBF CAN FIX THE 111 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -----------------------------------------------------------------------------------------------------------------------------
 
-Time: 583ms; Memory: 16MB
+Time: 1.78 secs; Memory: 16MB
 

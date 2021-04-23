@@ -54,7 +54,7 @@ class Player
         return $this->bitcoinBalance;
     }
 
-    public function getLastHand(): string
+    public function getLastHand(): array
     {
         return $this->diceHand->getLastHand();
     }

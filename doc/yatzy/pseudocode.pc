@@ -22,13 +22,13 @@ Givet:
         turen 13 kan spara enbart 2,3,4,5,6 (stor stege)
             set värde = 20
         turen 14 kan spara godtycklig kombination
-            set värde = summa(samtliga)
+            set värde = sum(samtliga)
     lediga turer: int[max 14]
 
 if (det finns lämpliga lediga turer i tabellen)
     visa visuellt hela tabellen samt lediga turer (med hjälp av radio buttons)
         där spelaren får spara sin tur
-    spelare får klicak på en "radio button", ingen förvald
+    spelare får klicak på en "radio button" (obligatorisk), ingen knapp förvald
     när spelar klickar på spara-knappen
         spara värdet i tabellen
             set turer[radio button value] = tärningar

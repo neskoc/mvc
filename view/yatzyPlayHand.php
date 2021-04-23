@@ -30,10 +30,10 @@ if ($debug != null) {
 <form action="" method="POST">
     <?php
     if ($rollNr < 3) {
-        echo('<input name="playGame" type="submit" value="Slå tärningar">');
+        echo('<input name="playHand" type="submit" value="Slå tärningar">');
     }
     ?>
-    <button type="submit" formaction="yatzy/save">Spara värdet</button>
+    <button type="submit" formaction="save" value="save">Stanna</button>
     <?= $hand ?>
 
     <div>

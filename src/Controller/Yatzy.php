@@ -23,7 +23,7 @@ class Yatzy
 
     public function __invoke(): ResponseInterface
     {
-        return $this->start();
+        return $this->initialize();
     }
 
     public function initialize(): ResponseInterface
@@ -36,36 +36,28 @@ class Yatzy
         return $this->gamePsr17Factory($body);
     }
 
-    public function start(): ResponseInterface
+    public function playHand(): ResponseInterface
     {
         $callable = unserialize($_SESSION['yatzy-game']);
-        $body = $callable->newGame();
+        $body = $callable->playHand();
         $_SESSION['yatzy-game'] = serialize($callable);
 
         return $this->gamePsr17Factory($body);
     }
 
-    public function playGame(): ResponseInterface
-    {
-        $callable = unserialize($_SESSION['yatzy-game']);
-        $body = $callable->playGame();
-        $_SESSION['yatzy-game'] = serialize($callable);
-
-        return $this->gamePsr17Factory($body);
-    }
-
-    public function save(): ResponseInterface
+    public function saveHand(): ResponseInterface
     {
         $callable = unserialize($_SESSION['yatzy-game']);
         $body = $callable->saveHand();
+        $_SESSION['yatzy-game'] = serialize($callable);
 
         return $this->gamePsr17Factory($body);
     }
 
-    public function roll(): ResponseInterface
+    public function gameOver(): ResponseInterface
     {
         $callable = unserialize($_SESSION['yatzy-game']);
-        $body = $callable->roll();
+        $body = $callable->gameOver();
 
         return $this->gamePsr17Factory($body);
     }
