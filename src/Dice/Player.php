@@ -79,4 +79,11 @@ class Player
         $this->wins += 1;
         return $this->wins;
     }
+
+    // extended for unit-testing
+
+    public function getDiceHand(): NewDiceHand
+    {
+        return $this->diceHand;
+    }
 }

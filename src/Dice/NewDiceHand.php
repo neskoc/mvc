@@ -79,4 +79,11 @@ class NewDiceHand
     {
         return $this->sum / (float) $this->nrOfDices;
     }
+
+    // extended for unit-testing
+
+    public function getDices(): array
+    {
+        return $this->dices;
+    }
 }
