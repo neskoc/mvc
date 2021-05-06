@@ -17,8 +17,8 @@ class ControllerYatzyTest extends TestCase
      */
     public function testCreateTheControllerClass()
     {
-        $controller = new Game21();
-        $this->assertInstanceOf("\\neskoc\Controller\Game21", $controller);
+        $controller = new Yatzy();
+        $this->assertInstanceOf("\\neskoc\Controller\Yatzy", $controller);
     }
 
     /**
@@ -26,49 +26,40 @@ class ControllerYatzyTest extends TestCase
      */
     public function testControllerReturnsResponse()
     {
-        $controller = new Game21();
+        $controller = new Yatzy();
 
         $exp = "\Psr\Http\Message\ResponseInterface";
         $res = $controller();
         $this->assertInstanceOf($exp, $res);
     }
 
-    public function testControllerStartReturnsResponse()
+    public function testControllerPlayHandReturnsResponse()
     {
-        $controller = new Game21();
+        $controller = new Yatzy();
+        $_POST['nrOfPlayers'] = '1';
 
         $exp = "\Psr\Http\Message\ResponseInterface";
-        $res = $controller->start();
+        $res = $controller->playHand();
         $this->assertInstanceOf($exp, $res);
     }
 
-    public function testControllerPlayGameReturnsResponse()
+    public function testControllerSaveHandReturnsResponse()
     {
-        $controller = new Game21();
+        $controller = new Yatzy();
+
+        $_POST['keep'] = 'Spara handen';
+        $_POST['choice'] = '7';
 
         $exp = "\Psr\Http\Message\ResponseInterface";
-        $res = $controller->playGame();
+        $res = $controller->saveHand();
         $this->assertInstanceOf($exp, $res);
     }
-
-    public function testControllerPlayRoundReturnsResponse()
+    public function testControllerGameOverReturnsResponse()
     {
-        $controller = new Game21();
-        $_POST['nrOfDices'] = '2';
-        $_POST['bet'] = '2';
-        $_POST['roll'] = "";
+        $controller = new Yatzy();
 
         $exp = "\Psr\Http\Message\ResponseInterface";
-        $res = $controller->playRound();
-        $this->assertInstanceOf($exp, $res);
-    }
-
-    public function testControllerRollReturnsResponse()
-    {
-        $controller = new Game21();
-
-        $exp = "\Psr\Http\Message\ResponseInterface";
-        $res = $controller->roll();
+        $res = $controller->gameOver();
         $this->assertInstanceOf($exp, $res);
     }
 }

@@ -21,6 +21,11 @@ class Yatzy
             ->withBody($psr17Factory->createStream($body));
     }
 
+    public function __invoke(): ResponseInterface
+    {
+        return $this->initialize();
+    }
+
     public function initialize(): ResponseInterface
     {
         $callable = new YatzyGame();
