@@ -125,7 +125,6 @@ final class YatzyYatzyColumnTest extends TestCase
         $score = 12;
         $this->yatzyColumn->saveValue($ix, $hand);
         $this->assertEquals($score, $this->yatzyColumn->yatzyColumn[$ix], (string) $ix);
-
     }
 
     public function testCalculateSumAndTotal(): void

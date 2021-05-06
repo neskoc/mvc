@@ -1,0 +1,16 @@
+
+FILE: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php
+--------------------------------------------------------------------------------------------------
+FOUND 7 ERRORS AFFECTING 4 LINES
+--------------------------------------------------------------------------------------------------
+  624 | ERROR | Each class must be in a namespace of at least one level (a top-level vendor name)
+ 1204 | ERROR | Each class must be in a file by itself
+ 1204 | ERROR | Each class must be in a namespace of at least one level (a top-level vendor name)
+ 1251 | ERROR | Each class must be in a file by itself
+ 1251 | ERROR | Each class must be in a namespace of at least one level (a top-level vendor name)
+ 1299 | ERROR | Each class must be in a file by itself
+ 1299 | ERROR | Each class must be in a namespace of at least one level (a top-level vendor name)
+--------------------------------------------------------------------------------------------------
+
+Time: 2.28 secs; Memory: 16MB
+

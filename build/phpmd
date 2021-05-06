@@ -1,0 +1,146 @@
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:21	Avoid assigning values to variables in if clauses and the like (line '37', column '13').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:21	Remove error control operator '@' on line 28.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:29	The method setupEnvironment uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:30	Missing class import via use statement (line '30', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:48	The function process() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:48	The function process() has an NPath complexity of 400. The configured NPath complexity threshold is 200.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:55	The function process() contains an exit expression.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:59	Avoid unused local variables such as '$help'.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:79	The function process() contains an exit expression.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:82	Avoid using undefined variables such as '$warnings' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:82	Avoid variables with short names like $ok. Configured minimum length is 3.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:82	Avoid variables with short names like $ok. Configured minimum length is 3.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:87	Avoid using undefined variables such as '$warnings' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:90	The function process() contains an exit expression.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:94	Missing class import via use statement (line '94', column '26').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:96	Avoid using undefined variables such as '$warnings' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:98	The function process() contains an exit expression.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:102	The function process() contains an exit expression.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:145	The method setUseAnsi uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:175	The method getOptValue uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:228	Avoid using undefined variables such as '$errors' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:232	Avoid using undefined variables such as '$errors' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:236	Avoid using undefined variables such as '$errors' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:240	Avoid using undefined variables such as '$errors' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:259	Avoid assigning values to variables in if clauses and the like (line '264', column '9').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:259	The function getPlatformIssues() has a Cyclomatic Complexity of 42. The configured cyclomatic complexity threshold is 10.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:259	The function getPlatformIssues() has an NPath complexity of 2359296000. The configured NPath complexity threshold is 200.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:259	The function getPlatformIssues() has 205 lines of code. Current threshold is set to 100. Avoid really long methods.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:266	The method getPlatformIssues uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:509	The method out has a boolean flag argument $newLine, which is a certain sign of a Single Responsibility Principle violation.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:585	Missing class import via use statement (line '585', column '19').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:624	The class Installer has an overall complexity of 86 which is very high. The configured complexity threshold is 50.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:647	Avoid assigning values to variables in if clauses and the like (line '649', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:654	Missing class import via use statement (line '654', column '33').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:668	Remove error control operator '@' on line 683.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:668	The method run() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:673	Missing class import via use statement (line '673', column '37').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:683	Avoid unused local variables such as '$output'.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:715	Missing class import via use statement (line '715', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:736	Missing class import via use statement (line '736', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:747	Avoid using static access to class 'HttpClient' in method 'initTls'.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:748	Avoid using static access to class 'HttpClient' in method 'initTls'.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:766	Missing class import via use statement (line '766', column '27').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:788	Remove error control operator '@' on line 795.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:800	Missing class import via use statement (line '800', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:832	Avoid using undefined variables such as '$url' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:832	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:833	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:837	Avoid using undefined variables such as '$url' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:837	Avoid using undefined variables such as '$signature' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:837	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:838	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:842	Avoid using undefined variables such as '$signature' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:842	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:843	Avoid using undefined variables such as '$error' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:856	The method install uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:873	The 'getVersion()' method which returns a boolean should be named 'is...()' or 'has...()'
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:886	Avoid using undefined variables such as '$data' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:887	Avoid using undefined variables such as '$data' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:902	Avoid assigning values to variables in if clauses and the like (line '907', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:902	Avoid assigning values to variables in if clauses and the like (line '912', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:928	Avoid assigning values to variables in if clauses and the like (line '935', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:935	Avoid variables with short names like $fh. Configured minimum length is 3.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:935	Avoid variables with short names like $fh. Configured minimum length is 3.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:963	Avoid using undefined variables such as '$pharError' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:964	Avoid using undefined variables such as '$pharError' which will lead to PHP notices.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:967	The method verifyAndSave uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1006	Missing class import via use statement (line '1006', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1018	Avoid assigning values to variables in if clauses and the like (line '1020', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1018	The 'getSignature()' method which returns a boolean should be named 'is...()' or 'has...()'
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1042	Avoid assigning values to variables in if clauses and the like (line '1044', column '14').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1080	Missing class import via use statement (line '1080', column '25').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1103	The method getJsonError uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1113	Remove error control operator '@' on line 1123.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1148	Remove error control operator '@' on line 1152.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1148	Remove error control operator '@' on line 1154.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1148	Remove error control operator '@' on line 1159.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1215	Avoid unused parameters such as '$code'.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1256	Avoid assigning values to variables in if clauses and the like (line '1260', column '13').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1291	The method test uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1299	The class HttpClient has an overall complexity of 75 which is very high. The configured complexity threshold is 50.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1305	The method __construct has a boolean flag argument $disableTls, which is a certain sign of a Single Responsibility Principle violation.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1305	The method __construct has a boolean flag argument $cafile, which is a certain sign of a Single Responsibility Principle violation.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1311	Missing class import via use statement (line '1311', column '31').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1338	The method get uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1344	Missing class import via use statement (line '1344', column '31').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1435	The method getTlsStreamContextDefaults uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1436	Missing class import via use statement (line '1436', column '23').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1458	The method getMergedStreamContext() has a Cyclomatic Complexity of 30. The configured cyclomatic complexity threshold is 10.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1458	The method getMergedStreamContext() has an NPath complexity of 808080. The configured NPath complexity threshold is 200.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1479	Missing class import via use statement (line '1479', column '28').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1500	Missing class import via use statement (line '1500', column '31').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1503	Missing class import via use statement (line '1503', column '31').
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1533	The method getMergedStreamContext uses an else expression. Else clauses are basically not necessary and you can simplify the code by not using them.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1578	Remove error control operator '@' on line 1626.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1578	The method getSystemCaRootBundlePath() has a Cyclomatic Complexity of 21. The configured cyclomatic complexity threshold is 10.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/composer-setup.php:1578	The method getSystemCaRootBundlePath() has an NPath complexity of 10240. The configured NPath complexity threshold is 200.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/config/router.php	-	Unexpected token: neskoc\Router, line: 11, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/config/router.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/htdocs/index.php	-	Unexpected token: Laminas\HttpHandlerRunner\Emitter\SapiEmitter, line: 9, col: 5, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/htdocs/index.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Controller/Game21.php	-	Unexpected token: neskoc\Controller, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Controller/Game21.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Controller/Yatzy.php	-	Unexpected token: neskoc\Controller, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Controller/Yatzy.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/ComputerPlayer.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/ComputerPlayer.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Dice.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Dice.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/DiceHand.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/DiceInterface.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/DiceInterface.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Game.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Game.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/GraphicalDice.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/GraphicalDice.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/HumanPlayer.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/HumanPlayer.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/NewDiceHand.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/NewDiceHand.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Player.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Dice/Player.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/ShowYatzyTable.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/ShowYatzyTable.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/ShowYatzyTableInterface.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/ShowYatzyTableInterface.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyColumn.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyColumn.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyColumnInterface.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyColumnInterface.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyGame.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyPlayer.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyPlayer.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyTable.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/Yatzy/YatzyTable.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/functions.php	-	Unexpected token: Mos\Functions, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/src/functions.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Config/ConfigBootstrapTest.php	-	Unexpected token: Mos\Config, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Config/ConfigBootstrapTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Controller/ControllerGame21Test.php	-	Unexpected token: neskoc\Controller, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Controller/ControllerGame21Test.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Controller/ControllerYatzyTest.php	-	Unexpected token: neskoc\Controller, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Controller/ControllerYatzyTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceComputerPlayerTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceComputerPlayerTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceDiceHandTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceDiceHandTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceDiceTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceDiceTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceGameTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceGameTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceGraphicalDiceTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceGraphicalDiceTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceHumanPlayerTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceHumanPlayerTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceNewDiceHandTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DiceNewDiceHandTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DicePlayerTest.php	-	Unexpected token: neskoc\Dice, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Dice/DicePlayerTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Function/FunctionsTest.php	-	Unexpected token: Mos\Functions, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Function/FunctionsTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyColumnTest.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyColumnTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyGameTest.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyGameTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyPlayerTest.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyPlayerTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyTableTest.php	-	Unexpected token: neskoc\Yatzy, line: 5, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/test/Yatzy/YatzyYatzyTableTest.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/debug.php	-	Unexpected token: Mos\Functions, line: 9, col: 14, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/debug.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/game21.php	-	Unexpected token: neskoc\Dice, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/game21.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/hand.php	-	Unexpected token: neskoc\Dice, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/hand.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/header.php	-	Unexpected token: Mos\Functions\url, line: 9, col: 14, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/header.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/play.php	-	Unexpected token: neskoc\Dice, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/play.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/result.php	-	Unexpected token: neskoc\Dice, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/result.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/session.php	-	Unexpected token: Mos\Functions\url, line: 9, col: 14, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/session.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzy.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzy.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyGameOver.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyGameOver.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyPlayGame.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyPlayGame.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyPlayHand.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzyPlayHand.php.
+/home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzySaveHand.php	-	Unexpected token: neskoc\Yatzy, line: 9, col: 11, file: /home/nesko/Dropbox/Db_dbwebb-kurser/mvc/me/game/view/yatzySaveHand.php.

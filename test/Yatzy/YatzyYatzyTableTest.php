@@ -80,5 +80,4 @@ final class YatzyYatzyTableTest extends TestCase
             '<th class="center">Spelare 2</th><th class="center">Val</th></tr></thead>';
         $this->assertStringContainsString($thead, $this->yatzyTable->showYatzyTable($this->yatzyTable, true));
     }
-
 }
