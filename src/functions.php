@@ -164,22 +164,22 @@ function getBaseUrl()
  */
 function getCurrentUrl(): string
 {
-    $scheme = $_SERVER["REQUEST_SCHEME"];
-    $server = $_SERVER["SERVER_NAME"];
+    $scheme = $_SERVER["REQUEST_SCHEME"] ?? "http";
+    $server = $_SERVER["SERVER_NAME"] ?? "localhost";
 
-    $port  = $_SERVER["SERVER_PORT"];
+    $port  = $_SERVER["SERVER_PORT"] ?? "80";
     $port  = ($port === "80")
         ? ""
         : (($port === 443 && $_SERVER["HTTPS"] === "on")
             ? ""
             : ":" . $port);
 
-    $uri = rtrim(rawurldecode($_SERVER["REQUEST_URI"]), "/");
+    $request_uri = $_SERVER["REQUEST_URI"] ?? "";
+    $uri = rtrim(rawurldecode($request_uri), "/");
 
     $url  = htmlspecialchars($scheme) . "://";
     $url .= htmlspecialchars($server)
         . $port . htmlspecialchars(rawurldecode($uri));
-
     return $url;
 }
 

@@ -19,8 +19,18 @@ class Game
 
     public function __construct()
     {
-        $this->humanPlayer = new HumanPlayer();
-        $this->computerPlayer = new ComputerPlayer();
+        $this->addHumanPlayer(new HumanPlayer());
+        $this->addComputerPlayer(new ComputerPlayer());
+    }
+
+    public function addHumanPlayer(HumanPlayer $humanPlayer)
+    {
+        $this->humanPlayer = $humanPlayer;
+    }
+
+    public function addComputerPlayer(ComputerPlayer $computerPlayer)
+    {
+        $this->computerPlayer = $computerPlayer;
     }
 
     public function newGame(): string
@@ -31,7 +41,6 @@ class Game
             "maxBet" => min($this->humanPlayer->getBalance() / 2, $this->computerPlayer->getBalance()),
             "computerBalance" => $this->computerPlayer->getBalance()
         ];
-
         $body = renderView("layout/game21.php", $data);
 
         return $body;
@@ -54,11 +63,10 @@ class Game
     public function playRound(): string
     {
         $_SESSION['nrOfDices'] = (int) $_POST['nrOfDices'];
-        $this->bet = (int) $_POST['bet'];
-        $this->rounds += 1;
-
         $this->humanPlayer->startRound($_SESSION['nrOfDices']);
         $this->computerPlayer->startRound($_SESSION['nrOfDices']);
+        $this->bet = (int) $_POST['bet'];
+        $this->rounds += 1;
 
         return $this->roll();
     }
@@ -67,12 +75,11 @@ class Game
     {
         $lost = false;
 
+        $playComputerHand = false;
         if (isset($_POST['roll']) || isset($_POST['playHand'])) {
             $lost = $this->playHumanHand();
             if ($this->humanPlayer->getRoundScore() === 21) {
                 $playComputerHand = true;
-            } else {
-                $playComputerHand = false;
             }
         } else {
             $playComputerHand = true;
@@ -82,7 +89,10 @@ class Game
 
             $lost = false;
 
-            if ($this->computerPlayer->getRoundScore() >= $this->humanPlayer->getRoundScore() && $this->computerPlayer->getRoundScore() <= 21) {
+            if (
+                $this->computerPlayer->getRoundScore() >= $this->humanPlayer->getRoundScore() &&
+                $this->computerPlayer->getRoundScore() <= 21
+            ) {
                 $lost = true;
             }
         }
@@ -126,10 +136,7 @@ class Game
 
     public function playHumanHand(): bool
     {
-        $res = $this->humanPlayer->playHand();
-        // var_dump($this->humanPlayer->getLastHand());
-        // exit();
-        if ($res > 21) {
+        if ($this->humanPlayer->playHand() > 21) {
             return true;
         }
         return false;
@@ -153,10 +160,6 @@ class Game
         } else {
             $this->humanPlayer->increaseWins();
         }
-        /* if ($this->rounds === 4) {
-            var_dump($this->getScore());
-            exit();
-        } */
     }
 
     public function getRounds(): int

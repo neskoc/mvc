@@ -10,7 +10,6 @@ namespace neskoc\Yatzy;
 
 class YatzyColumn implements YatzyColumnInterface
 {
-
     public array $yatzyColumn = []; // objects
     public array $occupiedSlots; // booleans
     public array $disabledSlots; // booleans
@@ -31,10 +30,6 @@ class YatzyColumn implements YatzyColumnInterface
 
     public function getAvailableSlots(array $hand): array
     {
-        if ($this->yatzy === 0 && count(array_unique($hand)) === 1) {
-            $this->yatzy = 50;
-            $this->total += 50;
-        };
         sort($hand);
         $availableSlots = [];
         foreach ($this->occupiedSlots as $key => $value) {
@@ -166,6 +161,14 @@ class YatzyColumn implements YatzyColumnInterface
             // exit();
             if (!in_array(false, $this->occupiedSlots)) {
                 $this->active = false;
+                $yatzyArray = [5, 10, 15, 20, 25, 30];
+                for ($ix = 0; $ix < 6; $ix += 1) {
+                    if ($this->yatzyColumn[$ix] === $yatzyArray[$ix]) {
+                        $this->yatzy = 50;
+                        $this->total += 50;
+                        break;
+                    }
+                }
             }
         }
     }
@@ -229,20 +232,6 @@ class YatzyColumn implements YatzyColumnInterface
         // return count(array_keys(array_values($arrayCountValues), $value));
     }
 
-    private function nrOfFourOfAKind(array $arrayCountValues): int
-    {
-        return $this->nrOfAKind($arrayCountValues, 4);
-    }
-
-    private function checkSlotNr8(array $arrayCountValues): bool
-    {
-        $nrOfPairs = $this->nrOfPairs($arrayCountValues);
-        if ($nrOfPairs === 2 || $this->checkIfFullHouse($arrayCountValues)) {
-            return true;
-        }
-        return false;
-    }
-
     private function calculateTwoPairs(array $arrayCountValues): int
     {
         $values = array_values($arrayCountValues);
@@ -257,15 +246,6 @@ class YatzyColumn implements YatzyColumnInterface
         return $score;
     }
 
-    private function checkIfFullHouse(array $arrayCountValues): bool
-    {
-        $values = array_values($arrayCountValues);
-        if (in_array(2, $values) && in_array(3, $values)) {
-            return true;
-        }
-        return false;
-    }
-
     public function isSlotEnabled(int $rowNr): bool
     {
         return !$this->disabledSlots[$rowNr];
@@ -274,12 +254,6 @@ class YatzyColumn implements YatzyColumnInterface
     public function isAnySlotAvailableAllowedAndEnabled(array $hand): bool
     {
         $availableAllowedAndEnabled = false;
-        $i = 0;
-        // var_dump($this->disabledSlots);
-        // var_dump($this->occupiedSlots);
-        // var_dump($this::ROWS);
-        // exit();
-
         // exclude chance
         for ($i = 0; $i < $this::ROWS - 1; $i += 1) {
             if (!$this->disabledSlots[$i] && !$this->occupiedSlots[$i] && $this->isSlotAllowed($i, $hand)) {
