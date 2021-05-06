@@ -13,7 +13,6 @@ use neskoc\Dice\NewDiceHand;
 use function Mos\Functions\renderView;
 use function Mos\Functions\url;
 use function Mos\Functions\redirectTo;
-use function Mos\Functions\askForPostAndGetParams as askForPostAndGetParams;
 
 class YatzyGame
 {
@@ -50,8 +49,7 @@ class YatzyGame
 
     public function playHand(): string
     {
-        $params = askForPostAndGetParams();
-        $this->savedDices = $params['dice'] ?? [];
+        $this->savedDices = $_POST['dice'] ?? [];
         $this->diceHand->rollSelectively($this->savedDices);
 
         if (isset($_POST['nrOfPlayers'])) {
@@ -95,14 +93,10 @@ class YatzyGame
 
     public function saveHand(): string
     {
-        $params = askForPostAndGetParams();
-        // $this->savedDices = $params['dice'] ?? [];
-        if (isset($params['keep'])) {
-            // $debug = json_encode($params);
+        if (isset($_POST['keep'])) {
             $diceHandArray = $this->diceHand->getLastHand();
-            $choice = (int) $params["choice"];
+            $choice = (int) $_POST["choice"];
             $this->yatzyTable->currentColumn->saveValue($choice, $diceHandArray);
-            $debug = json_encode($params) . json_encode($choice) . json_encode($diceHandArray);
             $this->diceHand->rollSelectively([]);
             $this->savedDices = [];
 
@@ -117,13 +111,7 @@ class YatzyGame
                 if ($this->yatzyTable->yatzyColumns[$this->nrOfPlayers - 1]->active === true) {
                     $finished = true;
                 }
-                // var_dump($this->playerNr);
-                // var_dump($finished);
-                // var_dump($this->yatzyTable->yatzyColumns[$this->nrOfPlayers - 1]->active);
             } while (!$finished && $finishedCounter > 0);
-            // echo('nrOfPlayers');
-            // var_dump($this->nrOfPlayers);
-            // exit();
 
             $this->currentPlayer = $this->yatzyPlayers[$this->playerNr];
             $this->yatzyTable->currentColumn = $this->yatzyTable->yatzyColumns[$this->playerNr - 1];
@@ -132,22 +120,18 @@ class YatzyGame
                 $this->round += 1;
             }
             if ($finishedCounter === 0) {
-                // var_dump($this->yatzyTable->yatzyColumns[0]->active);
-                // var_dump($this->yatzyTable->yatzyColumns[1]->active);
-                // var_dump($this->yatzyTable->yatzyColumns[0]->disabledSlots);
-                // var_dump($this->yatzyTable->yatzyColumns[1]->disabledSlots);
                 $_SESSION['yatzy-game'] = serialize($this);
                 redirectTo('game-over');
                 exit();
             }
             $_SESSION['yatzy-game'] = serialize($this);
-            redirectTo('play');
-            exit();
-        } else {
-            $debug = json_encode($params) . json_encode($this->diceHand->getLastHand());
+            if (!headers_sent()) {
+                redirectTo('play');
+                exit();
+            }
         }
 
-        $debug = $debug ?? json_encode($params);
+        $debug = $debug ?? '';
 
         $data = [
             "header" => "Yatzy (spara)",
@@ -169,7 +153,6 @@ class YatzyGame
     {
         $yatzyTable = $this->yatzyTable->showYatzyTable($this->yatzyTable);
 
-        // $debug = json_encode($this->savedDices) . json_encode($res);
         $data = [
             "header" => "Yatzy (slut)",
             "message" => 'Spelet är slut!',

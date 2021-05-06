@@ -89,16 +89,6 @@ trait ShowYatzyTable
             $tableRow .= '<td class="center">' . "{$radioButton}</td>";
         }
         $tableRow .= '</tr>';
-        // if ($rowNr === 13) {
-        //     var_dump($this->yatzyTable->getLastHand());
-        //     var_dump($anySlotAAE);
-        //     var_dump($slotAAE);
-        //     var_dump($isChanceAavailable);
-        //     var_dump($slotEnabled);
-        //     var_dump($rowNr === $this->yatzyTable::ROWS - 1 && $isChanceAavailable);
-        //     var_dump($rowNr);
-        //     exit();
-        // }
 
         return $tableRow;
     }

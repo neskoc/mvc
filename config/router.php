@@ -13,7 +13,7 @@ namespace neskoc\Router;
 use FastRoute\RouteCollector;
 
 if (isset($router)) {
-    $router->addRoute("GET", "/", "\Mos\Controller\Index");
+    $router->addRoute("GET", "/", ["\\neskoc\Controller\Game21", "start"]);
     $router->addGroup("/game21", function (RouteCollector $router) {
         // $router->addRoute("GET", "", "\\neskoc\Controller\Game21");
         $router->addRoute("GET", "", ["\\neskoc\Controller\Game21", "start"]);

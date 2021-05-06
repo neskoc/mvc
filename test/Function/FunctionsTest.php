@@ -31,19 +31,6 @@ class FunctionsTest extends TestCase
         $this->assertIsString($res);
     }
 
-
-
-    /**
-     * Test the function renderView().
-     */
-    public function testRenderTwigView()
-    {
-        $res = renderTwigView("index.html");
-        $this->assertIsString($res);
-    }
-
-
-
     /**
      * Test the function url().
      */

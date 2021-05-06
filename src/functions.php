@@ -20,7 +20,7 @@ use Twig\Environment;
 function getRoutePath(): string
 {
     $offset = strlen(dirname($_SERVER["SCRIPT_NAME"]));
-    $path   = substr($_SERVER["REQUEST_URI"], $offset);
+    $path   = substr($_SERVER["REQUEST_URI"] ?? '', $offset);
 
     return $path;
 }
@@ -48,37 +48,6 @@ function renderView(
 
     return ($content ? $content : "");
 }
-
-
-
-/**
- * Use Twig to render a view and return its rendered content.
- *
- * @param string $template to use when rendering the view.
- * @param array  $data     send to as variables to the view.
- *
- * @return string with the route path requested.
- */
-function renderTwigView(
-    string $template,
-    array $data = []
-): string {
-    static $loader = null;
-    static $twig = null;
-
-    if (is_null($twig)) {
-        $loader = new FilesystemLoader(
-            INSTALL_PATH . "/view/twig"
-        );
-        // $twig = new \Twig\Environment($loader, [
-        //     "cache" => INSTALL_PATH . "/cache/twig",
-        // ]);
-        $twig = new Environment($loader);
-    }
-
-    return $twig->render($template, $data);
-}
-
 
 
 /**
@@ -208,12 +177,4 @@ function destroySession(): void
     }
 
     session_destroy();
-}
-
-function askForPostAndGetParams()
-{
-    return array_merge(
-        filter_input_array(INPUT_POST) ?? [],
-        filter_input_array(INPUT_GET) ?? []
-    );
 }
